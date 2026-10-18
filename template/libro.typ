@@ -421,7 +421,7 @@
 }
 
 // ---- Pagine iniziali ------------------------------------------------------------
-#let frontespizio(titolo: [], sottotitolo: none, autore: [], colophon: none) = {
+#let frontespizio(titolo: [], sottotitolo: none, autore: [], editore: none, colophon: none) = {
   // Occhietto
   page(header: none, footer: none, {
     [#metadata("x")<senza-testatina>]
@@ -446,10 +446,13 @@
     })
     if sottotitolo != none {
       v(8mm)
-      block(width: 120mm, {
-        set par(justify: false, leading: 0.5em)
-        text(font: serif-sub, style: "italic", size: 14pt, fill: luma(20%), sottotitolo)
+      block(width: 118mm, {
+        set par(justify: false, leading: 0.55em)
+        text(font: serif-sub, style: "italic", size: 13pt, fill: luma(20%), hyphenate: false, sottotitolo)
       })
+    }
+    if editore != none {
+      place(bottom + left, marca(editore, size: 8pt, fill: grigio-testo, track: 0.24em))
     }
   })
   // Colophon

@@ -41,7 +41,7 @@ Il conteggio dei capitoli si basa sul file definitivo, non sulle indicazioni del
 
 ## 3. Dubbi editoriali da sottoporre al cliente
 
-1. **Titolo, sottotitolo e autore mancano nel manoscritto.** Nel PDF ci sono segnaposto: «Titolo del libro» e «Enzo Pasciuti», quest'ultimo ricavato dal contesto. Vanno confermati prima della stampa, insieme al **colophon**: anno, eventuale ISBN, crediti. Si modificano in 5 righe in cima a `it/main.typ`.
+1. **Titolo e sottotitolo: RISOLTO** — tradotti dalla copertina inglese («Dicono di averli portati»). Originale: Nel PDF ci sono segnaposto: «Titolo del libro» e «Enzo Pasciuti», quest'ultimo ricavato dal contesto. Vanno confermati prima della stampa, insieme al **colophon**: anno, eventuale ISBN, crediti. Si modificano in 5 righe in cima a `it/main.typ`.
 2. **Posizione delle bibliografie (capp. 6–16).** In ogni capitolo la bibliografia viene *prima* dei due box finali. L'ordine del manoscritto è stato rispettato. Spostare la bibliografia a chiusura del capitolo, dopo i box, renderebbe la lettura più lineare: è una modifica di una riga, se il cliente la approva.
 3. **Formato delle bibliografie non uniforme** (non toccato, perché è contenuto):
    - i nomi delle riviste sono in corsivo nei capp. 3–8, 11–14 e 16, ma in tondo nei capp. 2, 9, 10, 15 e 17;
