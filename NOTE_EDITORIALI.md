@@ -41,7 +41,7 @@ Il conteggio dei capitoli si basa sul file definitivo, non sulle indicazioni del
 
 ## 3. Dubbi editoriali da sottoporre al cliente
 
-1. **Titolo e sottotitolo** tradotti dalla copertina inglese: «Dicono di averli portati. La psicologia nascosta della collaborazione con gli allineatori trasparenti e i protocolli clinici che fanno funzionare il trattamento» (Dott. Enzo Pasciuti, Enzo Pasciuti Academy). Da far confermare al cliente, insieme al **colophon**: anno, eventuale ISBN, crediti. Si modificano in cima a `it/main.typ`.
+1. **Titolo, sottotitolo e autore** presi dalla copertina italiana: «Dicono di averli usati. La psicologia nascosta della collaborazione con gli allineatori e i protocolli clinici che fanno funzionare il trattamento», Dr. Enzo Pasciuti, Enzo Pasciuti Academy. Resta da confermare il **colophon**: anno, eventuale ISBN, crediti. Si modifica in cima a `it/main.typ`.
 2. **Posizione delle bibliografie (capp. 6–16).** In ogni capitolo la bibliografia viene *prima* dei due box finali. L'ordine del manoscritto è stato rispettato. Spostare la bibliografia a chiusura del capitolo, dopo i box, renderebbe la lettura più lineare: è una modifica di una riga, se il cliente la approva.
 3. **Formato delle bibliografie non uniforme** (non toccato, perché è contenuto):
    - i nomi delle riviste sono in corsivo nei capp. 3–8, 11–14 e 16, ma in tondo nei capp. 2, 9, 10, 15 e 17;
