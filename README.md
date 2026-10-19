@@ -43,6 +43,6 @@ In alternativa si può usare l'editor web di Typst (typst.app): basta caricare l
 1. Copiare `it/` in `en/` (o `es/`).
 2. In `tools/docx2typ.py` aggiungere in `TRIGGERS` le stringhe della nuova lingua, per esempio `"en": {"chapter": r"^CHAPTER\s+(\d+)$", "biblio": r"^References$", "script": r"^Operational script$", ...}`.
 3. Generare il contenuto: `python3 tools/docx2typ.py EN.docx en/contenuto.typ --lang en`.
-4. In `en/main.typ` impostare `lingua: "en"` (sillabazione) e le etichette, passando `etichette: (capitolo: "Chapter", ...)` a `libro.with(...)`. I titoli «Indice» e «Protocolli in sintesi» si cambiano nelle chiamate `#pagina-indice(...)`.
+4. In `en/main.typ` impostare `lingua: "en"` (sillabazione) e le etichette, passando `etichette: (capitolo: "Chapter", ...)` a `libro.with(...)`. Il titolo «Indice» si cambia nella chiamata `#pagina-indice(...)`.
 5. Compilare con `python3 tools/build.py en` e ricontrollare con `qa.py`.
 6. Ricalcolare il margine interno e il dorso della copertina in base al nuovo numero di pagine (vedi `NOTE_EDITORIALI.md`).

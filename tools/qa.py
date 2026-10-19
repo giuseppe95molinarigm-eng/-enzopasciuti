@@ -145,7 +145,9 @@ def main():
         nxt = doc[i + 1].get_text() if i + 1 < len(doc) else ""
         nn = " ".join(norm(nxt)[:40])
         chapter_end = (i + 1 >= len(doc) or not nxt.strip()
-                       or nn.startswith("capitolo") or "protocollo in sintesi" in nn)
+                       or nn.startswith("capitolo") or "protocollo in sintesi" in nn
+                       or ("adattare la comunicazione al profilo disc" in nn
+                           and "disc segue" not in nn))
         if fill < 0.80 and not chapter_end:
             problems.append(f"pagina {i+1}: pagina corta ({fill:.0%}) — ultima riga: {last[3][:50]}")
 

@@ -64,16 +64,16 @@ I requisiti sono stati verificati sulle guide KDP aggiornate (pagina *Paperback 
 | Rilegatura | Paperback (brossura). **KDP non offre l'8 × 10 in copertina rigida**: per l'hardcover servirebbero 7 × 10 o 8,25 × 11 |
 | Interno | Bianco e nero, **senza abbondanza (no bleed)**: nessun elemento arriva al bordo |
 | Carta consigliata | Bianca: i fondini grigi dei box rendono meglio e il tono è più adatto a un testo medico |
-| Pagine | **226** (x + 216) |
+| Pagine | **228** (viii + 220) |
 | Margine interno (gutter) | 25 mm. Il minimo KDP per 151–300 pagine è 12,7 mm (0,5 in); il margine regge anche fino a 828 pagine |
 | Margini esterno / alto / basso | 36 / 27 / 27 mm. Il minimo KDP è 6,4 mm (0,25 in) |
 | Font | Tutti incorporati (16 varianti, sottoinsiemi), verificato con `pdffonts` |
 | Colori | Solo scala di grigi (DeviceGray). Fondini all'8–4,5% di nero; filetti e testo al 100% |
 
-**Copertina (domanda del cliente: «serve anche la copertina?»).** Sì, KDP la richiede: è un PDF separato, unico, con quarta, dorso e prima di copertina, più 3,2 mm di abbondanza per lato. In alternativa si può usare Cover Creator di KDP. Con 226 pagine:
+**Copertina (domanda del cliente: «serve anche la copertina?»).** Sì, KDP la richiede: è un PDF separato, unico, con quarta, dorso e prima di copertina, più 3,2 mm di abbondanza per lato. In alternativa si può usare Cover Creator di KDP. Con 228 pagine:
 
-- **dorso**: 0,509 in (12,9 mm) su carta bianca, 0,565 in (14,4 mm) su carta crema;
-- **file completo**: 16,759 × 10,25 in su carta bianca.
+- **dorso**: 0,513 in (13,0 mm) su carta bianca, 0,570 in (14,5 mm) su carta crema;
+- **file completo**: 16,763 × 10,25 in su carta bianca.
 
 Il testo sul dorso è ammesso, perché il libro supera le 79 pagine. La copertina non fa parte di questo lavoro: si può preparare una volta confermato il titolo. Le misure del dorso vanno ricalcolate se cambia il numero di pagine.
 
@@ -94,7 +94,7 @@ Il testo sul dorso è ammesso, perché il libro supera le 79 pagine. La copertin
 - **Dialoghi nel testo.** Corsivo rientrato, senza riquadro.
 - **Script operativo.** Etichetta nera in negativo e battute su un fondino chiaro con un filetto nero verticale: si ritrovano a colpo d'occhio sfogliando il libro.
 - **«Perché questo protocollo funziona».** Voci con un quadratino nero e il titoletto in sans.
-- **Box DISC.** Riquadro con filetto nero. Per ogni profilo: lettera in negativo, nome, «Leva principale» e battuta con un filetto grigio. Il box si spezza solo tra un profilo e l'altro, ripete l'intestazione con «segue» e non comincia mai in fondo pagina senza almeno un profilo.
+- **Box DISC.** Apre sempre una pagina nuova, dopo la bibliografia. Riquadro con filetto nero; per ogni profilo: lettera in negativo, nome, «Leva principale» e battuta con un filetto grigio. Il box si spezza solo tra un profilo e l'altro e ripete l'intestazione con «segue».
 - **Protocollo in sintesi.** È pensato come una *scheda*:
   - comincia sempre in testa di pagina, con fondino grigio e filetto nero spesso;
   - le etichette (Quando applicarlo, Obiettivo, Cosa fare, Cosa verificare) stanno in una colonna a sinistra;
@@ -103,7 +103,6 @@ Il testo sul dorso è ammesso, perché il libro supera le 79 pagine. La copertin
   Se un box superasse la pagina, si spezzerebbe tra un campo e l'altro con «segue». Oggi nessuno lo fa.
 - **Indici.**
   - *Indice* generale con capitoli e sezioni.
-  - *Protocolli in sintesi*: indice di consultazione rapida con la pagina dello script e della scheda per ogni capitolo dal 6 al 16, pensato per l'uso in studio.
   
   Tutte le voci sono collegamenti cliccabili nel PDF.
 
@@ -122,9 +121,9 @@ Il testo sul dorso è ammesso, perché il libro supera le 79 pagine. La copertin
   - formato pagina;
   - font incorporati;
   - titoli isolati in fondo pagina: 0;
-  - 116 voci d'indice verificate contro le pagine reali: 0 errori.
+  - 82 voci d'indice verificate contro le pagine reali: 0 errori.
 - **Vedove e orfane.** Il motore di impaginazione le impedisce. I titoli restano sempre agganciati al testo che segue.
-- **Pagine corte segnalate (4).** Sono pp. 116, 129, 206 e 216 della numerazione PDF. In ognuna un box DISC, o uno dei suoi profili, passa interamente alla pagina successiva, lasciando bianco il fondo pagina. È il comportamento voluto: un profilo non viene mai spezzato e il box non apre in fondo pagina.
+- **Pagine corte segnalate (2).** Sono pp. 101 e 143 della numerazione PDF: un profilo del box DISC passa intero alla pagina successiva, per non essere spezzato. I fondi pagina bianchi prima dei box DISC e Protocollo sono voluti, perché entrambi aprono sempre una pagina nuova.
 
 ## 7. Altro
 

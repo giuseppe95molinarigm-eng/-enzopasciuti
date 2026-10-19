@@ -174,7 +174,7 @@
   })
   block({
     set par(justify: false, first-line-indent: 0pt, hanging-indent: 4mm, leading: 0.52em, spacing: 0.62em)
-    set text(font: serif-small, size: 8.4pt, hyphenate: true, fill: luma(10%))
+    set text(font: serif-small, size: 9.2pt, hyphenate: true, fill: luma(10%))
     show emph: it => it
     body
   })
@@ -210,17 +210,8 @@
           p.corpo
         })
     })
-  // «needspace»: il box non comincia in fondo pagina se non c'è spazio almeno
-  // per l'intestazione e il primo profilo.
-  layout(spazio => {
-    let h = measure(block(width: spazio.width, {
-      set par(first-line-indent: 0pt)
-      intestazione(false)
-      profilo(profili.first(), false)
-    })).height + 2pt
-    block(above: 2.6em, below: 0pt, height: h, breakable: false, width: 100%)
-    v(-h)
-  })
+  // Il box DISC apre sempre una pagina nuova, come il Protocollo in sintesi.
+  pagebreak(weak: true)
   block(above: 0pt, below: 1.4em, width: 100%, breakable: true, {
     set par(first-line-indent: 0pt)
     [#metadata("disc")<disc-inizio>]

@@ -23,8 +23,6 @@
 #frontespizio(titolo: titolo, sottotitolo: sottotitolo, autore: autore-frontespizio, editore: editore, colophon: colophon)
 
 #pagina-indice("Indice")[#indice()]
-#pagina-indice("Protocolli in sintesi",
-  sotto: [Consultazione rapida: per ogni protocollo, la pagina dello script operativo e del riquadro di sintesi.])[#indice-protocolli()]
 
 #apri-a-destra()
 #set page(numbering: "1")
