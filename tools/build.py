@@ -29,7 +29,7 @@ if a.campione:
     main = open(src, encoding="utf-8").read()
     main = main.replace('#include "contenuto.typ"', '#include "_campione_contenuto.typ"')
     main = re.sub(r'#frontespizio\(.*?\n', '', main)
-    main = re.sub(r'#pagina-indice\("Indice"\).*?\n', '', main)
+    main = re.sub(r'#pagina-indice\(.*?\n', '', main)
     open(tmp, "w", encoding="utf-8").write(main)
     open(os.path.join(ROOT, a.lang, "_campione_contenuto.typ"), "w", encoding="utf-8").write(
         '#import "../template/libro.typ": *\n' + part)

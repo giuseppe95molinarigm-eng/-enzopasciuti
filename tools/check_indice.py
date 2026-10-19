@@ -5,8 +5,8 @@ import re, sys
 import pymupdf
 
 doc = pymupdf.open(sys.argv[1])
-start = next(i for i, p in enumerate(doc) if "I N T R O D U Z I O N E" in p.get_text()[:80]
-             or p.get_text().lstrip().startswith("INTRODUZIONE"))
+start = next(i for i, p in enumerate(doc) if any(k in p.get_text()[:80] for k in ("I N T R O D U Z I O N E", "I N T R O D U C T I O N",
+                                                     "INTRODUZIONE", "INTRODUCTION")))
 flat = lambda s: re.sub(r"\s+", " ", s).strip()
 errors = n = 0
 for i in range(start):
@@ -22,7 +22,7 @@ for i in range(start):
         shown = l["page"] - start + 1           # folio della pagina di destinazione
         target = flat(doc[l["page"]].get_text())
         n += 1
-        if re.match(r"^(SCRIPT|PROTOCOLLO)\b", title):
+        if re.match(r"^(SCRIPT|PROTOCOLLO|PROTOCOL)\b", title):
             ok = title.endswith(str(shown))
         else:
             # numero più vicino sulla stessa riga, a destra della voce
@@ -30,7 +30,7 @@ for i in range(start):
             cand.sort(key=lambda w: abs((w[1] + w[3]) / 2 - (r.y1 - 4)))
             num_ok = True
             riga = [w[4] for w in words if abs((w[1] + w[3]) / 2 - cy) < 8]
-            if "PROTOCOLLO" not in riga:   # indice generale (non l'indice dei protocolli)
+            if not {"PROTOCOLLO", "PROTOCOL"} & set(riga):   # indice generale (non l'indice dei protocolli)
                 num_ok = bool(cand) and int(cand[0][4]) == shown
             key = title.split(": ")[-1][:22]
             ok = num_ok and key in target

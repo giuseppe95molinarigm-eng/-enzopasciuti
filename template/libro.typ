@@ -265,7 +265,7 @@
         text(font: sans, size: 6.9pt, weight: 700, tracking: 0.13em, hyphenate: false, upper(c.etichetta))),
       {
         set par(first-line-indent: 0pt, justify: false, leading: 0.66em, spacing: 0.66em)
-        set text(font: sans, size: 8.9pt, hyphenate: true, lang: "it")
+        set text(font: sans, size: 8.9pt, hyphenate: true)
         passi-reset()
         c.corpo
       })

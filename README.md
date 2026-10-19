@@ -6,6 +6,8 @@ Questo progetto produce il PDF di stampa a partire dal manoscritto Word. È pens
 template/libro.typ     progetto grafico: stili, box, aperture, indici (comune a tutte le lingue)
 it/main.typ            edizione italiana: titolo, autore, colophon, ordine delle pagine iniziali
 it/contenuto.typ       testo del libro in markup semantico (generato dal Word, modificabile)
+en/main.typ            edizione inglese: titolo, autore, colophon, etichette (Chapter, Contents, continued…)
+en/contenuto.typ       testo inglese (generato da en_MASTER_FINALISSIMO_revisionato.docx)
 fonts/                 Source Serif 4 e Inter (licenza SIL OFL), incorporati nel PDF
 tools/docx2typ.py      Word -> contenuto.typ (riconosce capitoli, script, box, bibliografie…)
 tools/build.py         compila il PDF (libro intero o campione di un capitolo)
@@ -23,7 +25,8 @@ pip install typst python-docx pymupdf pillow
 python3 tools/docx2typ.py "MASTER.docx" it/contenuto.typ     # solo se cambia il Word
 python3 tools/build.py it                                     # -> output/libro-it.pdf
 python3 tools/build.py it --campione 6                        # -> output/campione-it.pdf
-python3 tools/qa.py "MASTER.docx" output/libro-it.pdf
+python3 tools/docx2typ.py "EN.docx" en/contenuto.typ --lang en && python3 tools/build.py en   # -> output/libro-en.pdf
+python3 tools/qa.py "MASTER.docx" output/libro-it.pdf it      # oppure: EN.docx output/libro-en.pdf en
 python3 tools/check_indice.py output/libro-it.pdf
 ```
 
@@ -38,9 +41,11 @@ In alternativa si può usare l'editor web di Typst (typst.app): basta caricare l
   - `#bibliografia[...]`, `#disc(...)`, `#protocollo(...)`.
 - **Aspetto grafico.** Tutto in `template/libro.typ`: corpo, interlinea, gabbia, colori e stili dei box. Una modifica lì si applica a tutto il libro e a tutte le lingue.
 
-## Edizioni inglese e spagnola
+## Edizioni inglese (fatta) e spagnola
 
-1. Copiare `it/` in `en/` (o `es/`).
+Per lo spagnolo si ripete quanto fatto per l'inglese (`TRIGGERS["en"]` e `en/main.typ` sono il modello):
+
+1. Copiare `en/` in `es/`.
 2. In `tools/docx2typ.py` aggiungere in `TRIGGERS` le stringhe della nuova lingua, per esempio `"en": {"chapter": r"^CHAPTER\s+(\d+)$", "biblio": r"^References$", "script": r"^Operational script$", ...}`.
 3. Generare il contenuto: `python3 tools/docx2typ.py EN.docx en/contenuto.typ --lang en`.
 4. In `en/main.typ` impostare `lingua: "en"` (sillabazione) e le etichette, passando `etichette: (capitolo: "Chapter", ...)` a `libro.with(...)`. Il titolo «Indice» si cambia nella chiamata `#pagina-indice(...)`.

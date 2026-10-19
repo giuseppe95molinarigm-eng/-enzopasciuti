@@ -34,6 +34,19 @@ TRIGGERS = {
         "perche": r"^Perché questo protocollo funziona$",
         "disc_profile": r"^([DISC])\s*[—–-]\s*(.+)$",
         "box_labels": ["Quando applicarlo", "Obiettivo", "Cosa fare", "Cosa verificare"],
+        "leva": "Leva principale",
+    },
+    "en": {
+        "chapter": r"^(?:CHAPTER|Chapter)\s+(\d+)$",
+        "intro": r"^Introduction$",
+        "biblio": r"^References$",
+        "disc": r"^Adapting Communication to DISC Profiles$",
+        "box": r"^BOX\s*[—–-]\s*(Protocol at a Glance)$",
+        "script": r"^(The )?Practical Script$",
+        "perche": r"^Why This Protocol Works$",
+        "disc_profile": r"^([DISC])\s*[—–-]\s*(.+)$",
+        "box_labels": ["When to Use It", "Goal", "What to Do", "What to Check"],
+        "leva": "Main motivator",
     },
 }
 
@@ -304,7 +317,7 @@ def convert(path, lang="it"):
                 used.add(p.idx)
                 continue
             body = disc["profiles"][-1]["body"]
-            if p.all_bold and plain.startswith("Leva principale"):
+            if p.all_bold and plain.startswith(T["leva"]):
                 body.append(f"#leva[{runs_to_typ(p.runs, drop_bold=True)}]")
             elif p.starts_ital_quote or p.all_ital:
                 body.append(f"#battuta-disc[{runs_to_typ(p.runs)}]")

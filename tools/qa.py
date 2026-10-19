@@ -7,7 +7,7 @@
 2. Impaginazione: titoli isolati in fondo pagina, pagine troppo corte che non
    chiudono un capitolo, font non incorporati, formato pagina.
 
-    python3 tools/qa.py MANOSCRITTO.docx output/libro-it.pdf
+    python3 tools/qa.py MANOSCRITTO.docx output/libro-it.pdf [it|en]
 """
 import difflib
 import re
@@ -23,7 +23,17 @@ MM = IN / 25.4
 TOP, BOTTOM = 27 * MM, 27 * MM
 
 # Testi aggiunti dall'impaginazione (etichette, rimandi) e marcatori tolti.
-ADDED = ["segue", "capitolo"]
+ADDED = ["segue", "capitolo", "continued", "chapter"]
+
+# Stringhe che dipendono dalla lingua dell'edizione.
+LANG = {
+    "it": dict(intro="Perché ho scritto questo libro", toc="Indice", chapter="capitolo",
+               box="protocollo in sintesi", disc="adattare la comunicazione al profilo disc",
+               cont="segue"),
+    "en": dict(intro="Why I Wrote This Book", toc="Contents", chapter="chapter",
+               box="protocol at a glance", disc="adapting communication to disc profiles",
+               cont="continued"),
+}
 
 
 def norm(s):
@@ -71,6 +81,7 @@ def body_text(page):
 
 def main():
     src, pdf = sys.argv[1], sys.argv[2]
+    K = LANG[sys.argv[3] if len(sys.argv) > 3 else "it"]
     doc = pdf_pages(pdf)
     problems = []
 
@@ -89,8 +100,8 @@ def main():
         print("   font:", f[0], f[2])
 
     # inizio del corpo del libro: prima pagina che contiene l'introduzione
-    start = next(i for i, p in enumerate(doc) if "Perché ho scritto questo libro" in p.get_text()
-                 and "Indice" not in p.get_text()[:200])
+    start = next(i for i, p in enumerate(doc) if K["intro"] in p.get_text()
+                 and K["toc"] not in p.get_text()[:200])
     pdf_txt = "".join(body_text(doc[i]) for i in range(start, len(doc)))
     a = docx_stream(src)
     b = norm(pdf_txt)
@@ -113,8 +124,8 @@ def main():
             continue   # stessa sequenza di lettere: etichetta spaziata letta come parola unica
         rip = " ".join(adds)
         if not dels and (all(w in ADDED or w.isdigit() for w in adds)
-                         or rip in ("adattare la comunicazione al profilo disc segue",
-                                    "capitolo protocollo in sintesi segue")):
+                         or rip in (f"{K['disc']} {K['cont']}",
+                                    f"{K['chapter']} {K['box']} {K['cont']}")):
             continue   # etichette «Capitolo N» / «segue» aggiunte dall'impaginazione
         k = int(re.match(r"(\d+)", head).group(1))
         diffs.append((head, " ".join(dels)[:90], " ".join(adds)[:90], " ".join(a[max(0, k - 7):k - 1])))
@@ -145,9 +156,9 @@ def main():
         nxt = doc[i + 1].get_text() if i + 1 < len(doc) else ""
         nn = " ".join(norm(nxt)[:40])
         chapter_end = (i + 1 >= len(doc) or not nxt.strip()
-                       or nn.startswith("capitolo") or "protocollo in sintesi" in nn
-                       or ("adattare la comunicazione al profilo disc" in nn
-                           and "disc segue" not in nn))
+                       or nn.startswith(K["chapter"]) or K["box"] in nn
+                       or (K["disc"] in nn and f"disc {K['cont']}" not in nn
+                           and f"profiles {K['cont']}" not in nn))
         if fill < 0.80 and not chapter_end:
             problems.append(f"pagina {i+1}: pagina corta ({fill:.0%}) — ultima riga: {last[3][:50]}")
 

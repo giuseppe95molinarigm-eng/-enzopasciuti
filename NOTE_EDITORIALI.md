@@ -128,3 +128,18 @@ Il testo sul dorso è ammesso, perché il libro supera le 79 pagine. La copertin
 ## 7. Altro
 
 Il token API per la generazione di immagini fornito in chat **non è stato usato**: il progetto non richiede immagini. Dato che è stato condiviso in chiaro, consiglio di revocarlo e rigenerarlo.
+
+
+## 8. Edizione inglese
+
+- **File di partenza:** `en_MASTER_FINALISSIMO_revisionato.docx`.
+- **Stile:** identico all'edizione italiana approvata, con lo stesso template. Cambiano solo le etichette: Chapter, Contents, References, Practical Script, Why This Protocol Works, Adapting Communication to DISC Profiles, Protocol at a Glance, "continued" al posto di "segue". La sillabazione è inglese.
+- **Frontespizio:** testi della copertina inglese, cioè *They Say They Wore Them*, *The Hidden Psychology of Clear Aligner Compliance and the Clinical Protocols That Make Treatment Work*, Dr. Enzo Pasciuti, Enzo Pasciuti Academy. Il colophon è in inglese, ma anno ed eventuale ISBN sono da confermare.
+- **Struttura:** identica all'italiano: Introduzione e 17 capitoli, 149 titoli, 11 script, 11 box DISC, 11 box Protocol at a Glance, 17 bibliografie con 107 voci.
+- **Controlli:**
+  - testo integrale: 72.824 parole nel Word e nel PDF, 0 differenze;
+  - 82 voci d'indice verificate, 0 errori;
+  - 16 font incorporati;
+  - una sola pagina corta, la p. 96: un profilo DISC passa intero alla pagina dopo, come previsto.
+- **Pagine:** 216 (viii + 208). Gutter di 25 mm, conforme KDP.
+- **Copertina inglese:** dorso di 0,486 in (12,4 mm) su carta bianca e 0,540 in (13,7 mm) su carta crema; file completo di 16,736 × 10,25 in su carta bianca.
