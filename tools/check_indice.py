@@ -6,7 +6,8 @@ import pymupdf
 
 doc = pymupdf.open(sys.argv[1])
 start = next(i for i, p in enumerate(doc) if any(k in p.get_text()[:80] for k in ("I N T R O D U Z I O N E", "I N T R O D U C T I O N",
-                                                     "INTRODUZIONE", "INTRODUCTION")))
+                                                     "I N T R O D U C C I Ó N",
+                                                     "INTRODUZIONE", "INTRODUCTION", "INTRODUCCIÓN")))
 flat = lambda s: re.sub(r"\s+", " ", s).strip()
 errors = n = 0
 for i in range(start):
@@ -30,7 +31,7 @@ for i in range(start):
             cand.sort(key=lambda w: abs((w[1] + w[3]) / 2 - (r.y1 - 4)))
             num_ok = True
             riga = [w[4] for w in words if abs((w[1] + w[3]) / 2 - cy) < 8]
-            if not {"PROTOCOLLO", "PROTOCOL"} & set(riga):   # indice generale (non l'indice dei protocolli)
+            if not {"PROTOCOLLO", "PROTOCOL", "PROTOCOLO"} & set(riga):   # indice generale (non l'indice dei protocolli)
                 num_ok = bool(cand) and int(cand[0][4]) == shown
             key = title.split(": ")[-1][:22]
             ok = num_ok and key in target

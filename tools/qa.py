@@ -23,7 +23,7 @@ MM = IN / 25.4
 TOP, BOTTOM = 27 * MM, 27 * MM
 
 # Testi aggiunti dall'impaginazione (etichette, rimandi) e marcatori tolti.
-ADDED = ["segue", "capitolo", "continued", "chapter"]
+ADDED = ["segue", "capitolo", "continued", "chapter", "continúa", "capítulo"]
 
 # Stringhe che dipendono dalla lingua dell'edizione.
 LANG = {
@@ -33,6 +33,9 @@ LANG = {
     "en": dict(intro="Why I Wrote This Book", toc="Contents", chapter="chapter",
                box="protocol at a glance", disc="adapting communication to disc profiles",
                cont="continued"),
+    "es": dict(intro="Por qué he escrito este libro", toc="Índice", chapter="capítulo",
+               box="resumen del protocolo", disc="adaptar la comunicación al perfil disc",
+               cont="continúa"),
 }
 
 
@@ -64,7 +67,7 @@ def docx_stream(path):
     out = []
     for p in d.paragraphs:
         t = "".join(n.text or "" for n in p._p.iter() if n.tag.endswith("}t"))
-        t = re.sub(r"^\s*BOX\s*[—–-]\s*", "", t)   # marcatore redazionale
+        t = re.sub(r"^\s*(BOX|RECUADRO)\s*[—–-]\s*", "", t)   # marcatore redazionale
         out.append(t)
     return norm(" ".join(out))
 

@@ -8,6 +8,8 @@ it/main.typ            edizione italiana: titolo, autore, colophon, ordine delle
 it/contenuto.typ       testo del libro in markup semantico (generato dal Word, modificabile)
 en/main.typ            edizione inglese: titolo, autore, colophon, etichette (Chapter, Contents, continued…)
 en/contenuto.typ       testo inglese (generato da en_MASTER_FINALISSIMO_revisionato.docx)
+es/main.typ            edizione spagnola (frontespizio provvisorio in attesa della copertina)
+es/contenuto.typ       testo spagnolo (generato da es_MASTER_FINALISSIMO_revisionato.docx)
 fonts/                 Source Serif 4 e Inter (licenza SIL OFL), incorporati nel PDF
 tools/docx2typ.py      Word -> contenuto.typ (riconosce capitoli, script, box, bibliografie…)
 tools/build.py         compila il PDF (libro intero o campione di un capitolo)
@@ -41,11 +43,11 @@ In alternativa si può usare l'editor web di Typst (typst.app): basta caricare l
   - `#bibliografia[...]`, `#disc(...)`, `#protocollo(...)`.
 - **Aspetto grafico.** Tutto in `template/libro.typ`: corpo, interlinea, gabbia, colori e stili dei box. Una modifica lì si applica a tutto il libro e a tutte le lingue.
 
-## Edizioni inglese (fatta) e spagnola
+## Edizioni inglese e spagnola (fatte) — nuove lingue
 
-Per lo spagnolo si ripete quanto fatto per l'inglese (`TRIGGERS["en"]` e `en/main.typ` sono il modello):
+Per una nuova lingua si ripete quanto fatto per inglese e spagnolo (`TRIGGERS["es"]` e `es/main.typ` sono il modello):
 
-1. Copiare `en/` in `es/`.
+1. Copiare `es/` in una nuova cartella.
 2. In `tools/docx2typ.py` aggiungere in `TRIGGERS` le stringhe della nuova lingua, per esempio `"en": {"chapter": r"^CHAPTER\s+(\d+)$", "biblio": r"^References$", "script": r"^Operational script$", ...}`.
 3. Generare il contenuto: `python3 tools/docx2typ.py EN.docx en/contenuto.typ --lang en`.
 4. In `en/main.typ` impostare `lingua: "en"` (sillabazione) e le etichette, passando `etichette: (capitolo: "Chapter", ...)` a `libro.with(...)`. Il titolo «Indice» si cambia nella chiamata `#pagina-indice(...)`.

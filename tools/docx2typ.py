@@ -48,6 +48,20 @@ TRIGGERS = {
         "box_labels": ["When to Use It", "Goal", "What to Do", "What to Check"],
         "leva": "Main motivator",
     },
+    "es": {
+        "chapter": r"^(?:CAPÍTULO|Capítulo)\s+(\d+)$",
+        "intro": r"^Introducción$",
+        "biblio": r"^Bibliografía$",
+        "disc": r"^Adaptar la comunicación al perfil DISC$",
+        "box": r"^RECUADRO\s*[—–-]\s*(Resumen del protocolo|El protocolo en resumen|Protocolo en síntesis)$",
+        # nel Word il titolo del riquadro varia (capp. 10 e 11): uniformato
+        "box_title": "Resumen del protocolo",
+        "script": r"^(El )?[Gg]uion operativo$",
+        "perche": r"^Por qué funciona este protocolo$",
+        "disc_profile": r"^([DISC])\s*[—–-]\s*(.+)$",
+        "box_labels": ["Cuándo aplicarlo", "Objetivo", "Qué hacer", "Qué comprobar"],
+        "leva": "Palanca principal",
+    },
 }
 
 # Caratteri che in Typst hanno un significato di markup e vanno protetti.
@@ -256,7 +270,10 @@ def convert(path, lang="it"):
             continue
         if expect_epi:
             expect_epi = False
-            if "\n" in p.text and p.ital_ratio > 0.5 and re.search(r"\n\s*[—–-]", p.text):
+            if "\n" in p.text and p.ital_ratio > 0.5 and (
+                    re.search(r"\n\s*[—–-]", p.text)
+                    # attribuzione senza trattino (es. cap. 3 spagnolo): riga breve finale
+                    or len(p.text.split("\n", 1)[1].strip()) < 60):
                 quote, src = p.text.split("\n", 1)
                 src = re.sub(r"^\s*[—–-]\s*", "", src)
                 out.append(f'#capitolo(numero: "{chapter["num"]}", etichetta: [{esc(chapter["label"])}], '
@@ -285,7 +302,7 @@ def convert(path, lang="it"):
         if m_box:
             flush_all(); close_biblio()
             mode = "box"
-            box = {"chapter": chapter["num"], "title": esc(m_box.group(1)), "fields": []}
+            box = {"chapter": chapter["num"], "title": esc(T.get("box_title", m_box.group(1))), "fields": []}
             last_num = None
             bump("box_protocollo"); used.add(p.idx)
             continue
