@@ -164,3 +164,16 @@ Il token API per la generazione di immagini fornito in chat **non è stato usato
   - nessuna pagina corta o titolo isolato.
 - **Pagine:** 228 (viii + 220). Gutter di 25 mm, conforme KDP.
 - **Copertina spagnola:** dorso di 0,513 in (13,0 mm) su carta bianca e 0,570 in su carta crema; file completo di 16,763 × 10,25 in su carta bianca.
+
+## 10. Correzioni d'autore del 21 ottobre (tutte e tre le edizioni)
+
+L'autore ha chiesto di eliminare i riferimenti a Barry Glaser, Adam Goodman e *Aligner Insider*. Le correzioni sono state applicate direttamente ai file `it/`, `en/` ed `es/contenuto.typ` con il testo fornito dall'autore:
+
+1. **Introduzione:** il paragrafo «Poi ho scoperto *Aligner Insider*…» è stato sostituito con «È stato leggendo le discussioni su Facebook…» (EN: «Reading discussions in Facebook groups…»; ES: «Fue al leer las conversaciones…»).
+2. **Capitolo 12:** il paragrafo «Barry Glaser ha descritto molto bene…» è stato sostituito con «Nel tempo ho iniziato a chiamare questi pazienti i pazienti al 95%…», con gli equivalenti inglese e spagnolo.
+
+Il grassetto sul termine «pazienti al 95%» («95% patients», «pacientes al 95%») è stato mantenuto come nell'originale. In italiano è rimasto il corsivo su *tutto il mondo è paese*.
+
+Nei tre libri non restano altre menzioni di Glaser, Goodman o Aligner Insider. Pagine e indici sono invariati.
+
+**Attenzione:** i Word di partenza non contengono queste correzioni. Se si rigenera `contenuto.typ` da un Word con `docx2typ.py`, vanno riapplicate. In alternativa, usare un Word aggiornato dall'autore.
