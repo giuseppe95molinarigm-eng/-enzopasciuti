@@ -3,9 +3,9 @@
 // Mismo diseño que la edición italiana (template/libro.typ); solo cambian textos y etiquetas.
 #import "../template/libro.typ": *
 
-// ---- Datos del libro (PROVISIONALES: confirmar con la cubierta española) --------
-#let titolo = [Dicen que los usaron]
-#let sottotitolo = [La psicología oculta de la colaboración con los alineadores y los protocolos clínicos que hacen funcionar el~tratamiento]
+// ---- Datos del libro (de la cubierta española) -----------------------------------
+#let titolo = [Dicen que los han usado]
+#let sottotitolo = [La psicología oculta de la colaboración con los alineadores y los protocolos clínicos que hacen que el tratamiento~funcione]
 #let autore = "Enzo Pasciuti"
 #let autore-frontespizio = "Dr. Enzo Pasciuti"
 #let editore = "Enzo Pasciuti Academy"

@@ -8,7 +8,7 @@ it/main.typ            edizione italiana: titolo, autore, colophon, ordine delle
 it/contenuto.typ       testo del libro in markup semantico (generato dal Word, modificabile)
 en/main.typ            edizione inglese: titolo, autore, colophon, etichette (Chapter, Contents, continued…)
 en/contenuto.typ       testo inglese (generato da en_MASTER_FINALISSIMO_revisionato.docx)
-es/main.typ            edizione spagnola (frontespizio provvisorio in attesa della copertina)
+es/main.typ            edizione spagnola: titolo, autore, colophon, etichette (Capítulo, Índice, continúa…)
 es/contenuto.typ       testo spagnolo (generato da es_MASTER_FINALISSIMO_revisionato.docx)
 fonts/                 Source Serif 4 e Inter (licenza SIL OFL), incorporati nel PDF
 tools/docx2typ.py      Word -> contenuto.typ (riconosce capitoli, script, box, bibliografie…)

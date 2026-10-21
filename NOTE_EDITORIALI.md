@@ -148,10 +148,7 @@ Il token API per la generazione di immagini fornito in chat **non è stato usato
 
 - **File di partenza:** `es_MASTER_FINALISSIMO_revisionato.docx`.
 - **Stile:** identico all'edizione italiana approvata. Cambiano solo le etichette: Capítulo, Índice, Bibliografía, Guion operativo, Por qué funciona este protocolo, Adaptar la comunicación al perfil DISC, Resumen del protocolo, "continúa". La sillabazione è spagnola.
-- **Frontespizio PROVVISORIO.** La copertina spagnola non è ancora arrivata. Ho inserito una traduzione coerente con le altre edizioni, da sostituire con i testi della copertina in cima a `es/main.typ`:
-  - titolo: *Dicen que los usaron*;
-  - sottotitolo: *La psicología oculta de la colaboración con los alineadores y los protocolos clínicos que hacen funcionar el tratamiento*;
-  - autore ed editore: Dr. Enzo Pasciuti, Enzo Pasciuti Academy.
+- **Frontespizio:** testi della copertina spagnola, cioè *Dicen que los han usado*, *La psicología oculta de la colaboración con los alineadores y los protocolos clínicos que hacen que el tratamiento funcione*, Dr. Enzo Pasciuti, Enzo Pasciuti Academy.
 - **Interventi sul Word spagnolo:**
   - il titolo del riquadro varia nel manoscritto: «Resumen del protocolo» in 9 capitoli, «El protocolo en resumen» nel cap. 10, «Protocolo en síntesis» nel cap. 11. È stato uniformato a «Resumen del protocolo»;
   - il marcatore «RECUADRO —» è stato reso graficamente, come «BOX —»;
